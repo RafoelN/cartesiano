@@ -14,19 +14,8 @@ public class Cartesiano {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Circulo c1 = new Circulo();
-        Circulo c2 = new Circulo(3, 2, 5); 
-        Circulo c3 = new Circulo(c2);
-
-        System.out.println("c1 " + c1);
-        System.out.println("c2 " + c2);
-        System.out.println("c3 " + c3);
-        System.out.println(c2.isValid());
-        System.out.println(c2.perimeter());
-        System.out.println(c2.area());
-        
-        c1.assign(c2);
-        System.out.println(c1);
+        Segmento sg = new Segmento();
+        System.out.println(sg);
     }
     
 }

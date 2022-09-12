@@ -13,13 +13,13 @@ public class Segmento {
     private Ponto pontoDois;
     
     public Segmento (){
-        pontoUm = new Ponto(0, 0);
+        pontoUm = new Ponto();
         pontoDois = new Ponto(0, 1);
     }
     
     public Segmento (Ponto pontoUm, Ponto pontoDois){
-         this.pontoUm = pontoUm;
-         this.pontoDois = pontoDois;
+         this.pontoUm = new Ponto (pontoUm);
+         this.pontoDois = new Ponto (pontoDois);
     }
     
     public Segmento (Segmento segmento){
@@ -27,8 +27,8 @@ public class Segmento {
     }
     
     public void assign (Segmento sg){
-        pontoUm = sg.pontoUm;
-        pontoDois = sg.pontoDois;
+        pontoUm.assign(sg.pontoUm);
+        pontoDois.assign(sg.pontoDois);
     }
     
     public void desloc(double dX, double dY){
@@ -46,10 +46,9 @@ public class Segmento {
     }
     
     public boolean isValid(){
-        if(pontoUm == null) return false;
-        else if(pontoDois == null) return false;
+        if(pontoUm == null || pontoDois == null) return false;
         else if(pontoUm.equals(pontoDois)) return false;   
-        else if(pontoUm.getX() == pontoDois.getX() && pontoUm.getY() == pontoDois.getY()) return false;
+        else if(pontoUm.getX() == pontoDois.getX() || pontoUm.getY() == pontoDois.getY()) return false;
         return true;
     }
     
